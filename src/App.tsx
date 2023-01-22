@@ -4,7 +4,10 @@ import './App.css'
 
 const Snake = () => {
   const [size, setSize] = useState<[number, number]>([0, 0]);
+  setSize([window.innerWidth / 30, window.innerWidth / 30]);
+
   const styleSerpent = { width: size[0], height: size[1], backgroundColor: 'red' };
+
   const [direction, setDirection] = useState<string>('');
   const [position, setPosition] = useState<[number, number]>([0, 0]);
 
@@ -22,16 +25,9 @@ const Snake = () => {
       setDirection('down');
     }
   }
-
-  const [intervalId, setIntervalId] = useState<number>();
-  const [previousDirection, setPreviousDirection] = useState<string>(direction);
-
   useEffect(() => {
-      setSize([window.innerWidth / 30, window.innerWidth / 30]);
 
 const handleKeyDown = () => {
-  if (direction !== previousDirection) {
-    setPreviousDirection(direction);
     if (direction === 'right') {
       setPosition(([x, y]) => [x + 10, y])
     }
@@ -44,16 +40,7 @@ const handleKeyDown = () => {
     if (direction === 'down') {
       setPosition(([x, y]) => [x, y + 10]);
     }
-  }
 };
-      setIntervalId(setInterval(handleKeyDown, 100));
-      const handleKeyDownEvent = (event: KeyboardEvent) => NewDirection(event);
-      document.addEventListener('keydown', handleKeyDownEvent);
-    
-      return () => {
-        document.removeEventListener('keydown', handleKeyDownEvent);
-        clearInterval(intervalId);
-      }
     }, [direction]);
   
   return (
