@@ -1,74 +1,75 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css'
 
-function Form(): JSX.Element {
-  const [inputValue, setInputValue] = useState('')
-  
-  const [list, setList] = useState<String[]>([]);
+const Snake = () => {
+  const [size, setSize] = useState<[number, number]>([0, 0]);
+  const styleSerpent = { width: size[0], height: size[1], backgroundColor: 'red' };
+  const [direction, setDirection] = useState<string>('');
+  const [position, setPosition] = useState<[number, number]>([0, 0]);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      // setList(list.concat([inputValue])) is the same as what is in the next line
-      setList([...list, inputValue]);
-      // It take the values of the list and add inputvalue on top of it each time you 
-      // cclick on submit
-      // line 17 helps to put the input value to an emplty character
-      setInputValue('');
-  };
-
-  const handleDelete = (index: number) => {
-//  using index as a key can cause unexpected behavior especially if the list order changes
-// or items are added or removed. It's a good practice to use the unique value of each item
-//as the key, like a unique ID if your data has one.
-//  I need to have a copy of the array wich is untouched
- let newList = [...list]
- newList.splice(index, 1)
- setList(newList)
-
-
+  const NewDirection = (event: KeyboardEvent) => {
+    if (event.key === 'ArrowRight') {
+      setDirection('right');
+    }
+    else if (event.key === 'ArrowLeft') {
+      setDirection('left');
+    }
+    else if (event.key === 'ArrowUp') {
+      setDirection('up');
+    }
+    else if (event.key === 'ArrowDown') {
+      setDirection('down');
+    }
   }
 
+  const [intervalId, setIntervalId] = useState<number>();
+  const [previousDirection, setPreviousDirection] = useState<string>(direction);
 
+  useEffect(() => {
+      setSize([window.innerWidth / 30, window.innerWidth / 30]);
+
+const handleKeyDown = () => {
+  if (direction !== previousDirection) {
+    setPreviousDirection(direction);
+    if (direction === 'right') {
+      setPosition(([x, y]) => [x + 10, y])
+    }
+    if (direction === 'left') {
+      setPosition(([x, y]) => [x - 10, y]);
+    }
+    if (direction === 'up') {
+      setPosition(([x, y]) => [x, y - 10]);
+    }
+    if (direction === 'down') {
+      setPosition(([x, y]) => [x, y + 10]);
+    }
+  }
+};
+      setIntervalId(setInterval(handleKeyDown, 100));
+      const handleKeyDownEvent = (event: KeyboardEvent) => NewDirection(event);
+      document.addEventListener('keydown', handleKeyDownEvent);
+    
+      return () => {
+        document.removeEventListener('keydown', handleKeyDownEvent);
+        clearInterval(intervalId);
+      }
+    }, [direction]);
+  
   return (
-    <>
-    <h1> To do list</h1>
-    <form onSubmit={handleSubmit}>
-      <label>Enter your name:
-        <input type="text" 
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}/>
-      </label>
-      <input type="submit" />
-      <p> You typed : {inputValue} </p>
-    </form>
-
-    <ol>
-          {list.map((item, index) => (
-            <li key={index}>{item} <button onClick={()=> handleDelete(index)} >delete</button></li>
-          ))}
-    </ol>
-    </>
-  )
+    <div
+      style={{ ...styleSerpent, position: 'absolute', left: position[0], top: position[1] }}
+    >
+    </div>
+  );
 }
 
 function App(): JSX.Element {
-  const [count, setCount] = useState<number>(0)
-
-  useEffect(() =>{
-    console.log("resr")
-  }, [count] )
-  
   return (
     <div className="App">
-
-      <Form/>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <Snake />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
