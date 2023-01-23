@@ -10,15 +10,22 @@ const Snake = () => {
 
   const NewDirection = useCallback((event: KeyboardEvent) => {
     if (event.key === 'ArrowRight') {
+      setDirection('')
       setDirection('right');
     }
     else if (event.key === 'ArrowLeft') {
+      setDirection('')
+
       setDirection('left');
     }
     else if (event.key === 'ArrowUp') {
+      setDirection('')
+
       setDirection('up');
     }
     else if (event.key === 'ArrowDown') {
+      setDirection('')
+
       setDirection('down');
     }
   },[])
@@ -40,9 +47,11 @@ const Snake = () => {
         setPosition(([x, y]) => [x, y + 10]);
       }
     };
-    setIntervalId(setInterval(handleKeyDown, 100));
+    setIntervalId(setInterval(handleKeyDown, 1000));
     const handleKeyDownEvent = (event: KeyboardEvent) => NewDirection(event);
     document.addEventListener('keydown', handleKeyDownEvent);
+    clearInterval(intervalId);
+
     return () => {
       document.removeEventListener('keydown', handleKeyDownEvent);
       clearInterval(intervalId);
