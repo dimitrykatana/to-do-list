@@ -10,57 +10,49 @@ const Snake = () => {
 
   const NewDirection = useCallback((event: KeyboardEvent) => {
     if (event.key === 'ArrowRight') {
-      setDirection('')
       setDirection('right');
     }
     else if (event.key === 'ArrowLeft') {
-      setDirection('')
-
       setDirection('left');
     }
     else if (event.key === 'ArrowUp') {
-      setDirection('')
-
       setDirection('up');
     }
     else if (event.key === 'ArrowDown') {
-      setDirection('')
-
       setDirection('down');
     }
   },[])
 
+  const handleKeyDown = () => {
+    if (direction === 'right') {
+      setPosition(([x, y]) => [x + 10, y])
+    }
+    if (direction === 'left') {
+      setPosition(([x, y]) => [x - 10, y]);
+    }
+    if (direction === 'up') {
+      setPosition(([x, y]) => [x, y - 10]);
+    }
+    if (direction === 'down') {
+      setPosition(([x, y]) => [x, y + 10]);
+    }
+  };
+  
   const [intervalId, setIntervalId] = useState<number>();
 
   useEffect(() => {
-    const handleKeyDown = () => {
-      if (direction === 'right') {
-        setPosition(([x, y]) => [x + 10, y])
-      }
-      if (direction === 'left') {
-        setPosition(([x, y]) => [x - 10, y]);
-      }
-      if (direction === 'up') {
-        setPosition(([x, y]) => [x, y - 10]);
-      }
-      if (direction === 'down') {
-        setPosition(([x, y]) => [x, y + 10]);
-      }
-    };
-    setIntervalId(setInterval(handleKeyDown, 1000));
-    const handleKeyDownEvent = (event: KeyboardEvent) => NewDirection(event);
-    document.addEventListener('keydown', handleKeyDownEvent);
+    setIntervalId(setInterval(handleKeyDown, 100));
     clearInterval(intervalId);
 
-    return () => {
-      document.removeEventListener('keydown', handleKeyDownEvent);
-      clearInterval(intervalId);
-    } 
+    const handleKeyDownEvent = (event: KeyboardEvent) => NewDirection(event);
+    document.addEventListener('keydown', handleKeyDownEvent);
   }, [direction]);
+
   return (
     <div
       style={{ ...styleSerpent, position: 'absolute', left: position[0], top: position[1] }}
     >
+      
     </div>
   );
 }
