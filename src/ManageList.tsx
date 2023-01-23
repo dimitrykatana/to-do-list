@@ -1,53 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import ManageList from './ManageList';
+import React, { useCallback, useRef } from 'react';
+import { useState, useEffect } from 'react';
+import './App.css'
 
-const Form = (): JSX.Element => {
-  const [inputValue, setInputValue] = useState('')
+const Snake = () => {
+  const size = [window.innerWidth / 30, window.innerWidth / 30];
+  const styleSerpent = { width: size[0], height: size[1], backgroundColor: 'red' };
+  const [direction, setDirection] = useState<string>('');
+  const [position, setPosition] = useState<[number, number]>([0, 0]);
+  const snake = document.getElementById("Snake")
+  console.dir(snake?.children)
+  const NewDirection = useCallback((event: KeyboardEvent) => {
+    if (event.key === 'ArrowRight') {
+      setDirection('right');
+    }
+    else if (event.key === 'ArrowLeft') {
+      setDirection('left');
+    }
+    else if (event.key === 'ArrowUp') {
+      setDirection('up');
+    }
+    else if (event.key === 'ArrowDown') {
+      setDirection('down');
+    }
+  },[])
   
-  const [list, setList] = useState<string[]>([]);
-  
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setList([...list, inputValue]);
-    setInputValue('');
+  const handleKeyDown = () => {
+    if (direction === 'right') {
+      setPosition(([x, y]) => [x + 10, y])
+    }
+    if (direction === 'left') {
+      setPosition(([x, y]) => [x - 10, y]);
+    }
+    if (direction === 'up') {
+      setPosition(([x, y]) => [x, y - 10]);
+    }
+    if (direction === 'down') {
+      console.log(window.innerHeight)
+      setPosition(([x, y]) => [x, y + 10]);
+    }
   };
-  const handleDelete = (index: number) => {
-    let newList = [...list]
-    newList.splice(index, 1)
-    setList(newList)
-  }
-  
-  
+
+  const [intervalId, setIntervalId] = useState<number>();
+  useEffect(() => {
+    setIntervalId(setInterval(handleKeyDown, 80));
+    console.log(position)
+    document.addEventListener('keydown', NewDirection);
+    return (clearInterval(intervalId));
+  }, [direction]);
+
   return (
     <>
-    <h1> To do list</h1>
-    <form onSubmit={handleSubmit}>
-    <label>Enter your name:
-    <input type="text" 
-    value={inputValue}
-    onChange={(e) => setInputValue(e.target.value)}/>
-    </label>
-    <input type="submit" />
-    <p> You typed : {inputValue} </p>
-    </form>
-    
-    <ol>
-    {list.map((item, index) => (
-      <li key={index}>{item} <button onClick={()=> handleDelete(index)} >delete</button></li>
-      ))}
-      </ol>
-      
-      </>
-      )
-    }
-    
-function App(): JSX.Element {
-    return (
-    <div className="App">
-    <Form/>
-        
+    <div id='Snake' className='part' style={{display: "flex", position: 'absolute', left: position[0], top: position[1]}}>
+    <div className='part 0'
+    style={{ ...styleSerpent }}
+    >
     </div>
-    )
+    <div
+    style={{ ...styleSerpent }}
+    >
+    </div>
+    <div
+    style={{ ...styleSerpent }}
+    >
+    </div>
+    </div>
+    
+    </>
+    );
+  }
+  
+function App(): JSX.Element {
+  return (
+    <div className="App">
+    <Snake />
+    </div>
+  );
 }
-      
-export default App
+  
+export default App;
