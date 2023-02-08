@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const SearchBar = (): JSX.Element => {
+type Props = {
+    onSubmit: (inputValue: string) => void;
+};
+
+const SearchBar = (props : Props): JSX.Element => {
     const [inputValue, setInputValue] = useState('')
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       // permet d'éviter le rechargement de la page
       event.preventDefault();
-    };
 
+    // call the onSubmit prop to pass the inputValue to the parent component
+    props.onSubmit(inputValue);
+    };
+  
     return (
       <>
         <h1> To do list</h1>

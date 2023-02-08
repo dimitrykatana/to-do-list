@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+type Props = {
+    filter: string;
+};
+
 // If there is a type void error, it means your function
 // isn't returning anything and so you have to.
 // When you create a jsx element use uppercase for the first letter
@@ -11,7 +15,7 @@ const Lien_image = (index : number) => {
     return lien;
 }
 
-const Liste_pokemon = (): JSX.Element => {
+const Liste_pokemon = (props : Props): JSX.Element => {
     const [list, setList] = useState<string[]>([]);
     
     useEffect(() => {
@@ -25,11 +29,14 @@ const Liste_pokemon = (): JSX.Element => {
       .catch(error => console.error(error));
     }, []);
 
+    const filteredList = list.filter(item =>
+        item.toLowerCase().includes(props.filter.toLowerCase())
+    );
     return(
       <ol>
-      {list.map((item, index) => (
+      {filteredList.map((item, index) => (
         <li key={index}>{item}      
-        <img src={Lien_image(index)} alt={`${item}`} />
+        {/* <img src={Lien_image(index)} alt={`${item}`} /> */}
         </li>
       ))}
       </ol>
