@@ -6,8 +6,8 @@ function App(): JSX.Element {
     const [filter, setFilter] = useState('');
     return (
     <div className="App">
-    <SearchBar onSubmit={setFilter} />
-    <Liste_pokemon filter={filter} />
+    <SearchBar onSearch={setFilter} />
+    <Liste_pokemon filtrage={filter} />
     </div>
     )
 }

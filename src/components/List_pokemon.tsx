@@ -2,14 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 type Props = {
-    filter: string;
+    filtrage: string;
 };
 
-// If there is a type void error, it means your function
-// isn't returning anything and so you have to.
-// When you create a jsx element use uppercase for the first letter
-// if you don't react assume this is already an existing feature
-// which is not our case
 const Lien_image = (index : number) => {
     const lien = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`;
     return lien;
@@ -19,7 +14,7 @@ const Liste_pokemon = (props : Props): JSX.Element => {
     const [list, setList] = useState<string[]>([]);
     
     useEffect(() => {
-      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=20`)
+      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=50`)
       .then(res => {
         // list the names of all poke monsterzzz.
         const Les_pokemonz = res.data.results.map((pokemonz : { name: string}) => pokemonz.name)
@@ -28,15 +23,16 @@ const Liste_pokemon = (props : Props): JSX.Element => {
       })
       .catch(error => console.error(error));
     }, []);
-
+    console.log(props)
     const filteredList = list.filter(item =>
-        item.toLowerCase().includes(props.filter.toLowerCase())
+        item.includes(props.filtrage.toLowerCase())
     );
+
     return(
       <ol>
       {filteredList.map((item, index) => (
         <li key={index}>{item}      
-        {/* <img src={Lien_image(index)} alt={`${item}`} /> */}
+            <img src={Lien_image(list.indexOf(item))} alt={`${item}`} />
         </li>
       ))}
       </ol>

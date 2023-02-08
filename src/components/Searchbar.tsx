@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 type Props = {
-    onSubmit: (inputValue: string) => void;
+    onSearch: (inputValue: string) => void;
 };
 
 const SearchBar = (props : Props): JSX.Element => {
@@ -10,9 +10,11 @@ const SearchBar = (props : Props): JSX.Element => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       // permet d'éviter le rechargement de la page
       event.preventDefault();
+    console.log(props.onSearch)
+    // call the onSearch prop to pass the inputValue to the parent component
+    // On passe à ce props l'inputvalue du usestate que l'on a en haut
+    props.onSearch(inputValue);
 
-    // call the onSubmit prop to pass the inputValue to the parent component
-    props.onSubmit(inputValue);
     };
   
     return (
@@ -23,10 +25,12 @@ const SearchBar = (props : Props): JSX.Element => {
           </label>
           <input type="text" 
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}/>
+          onChange={(e) => setInputValue(e.target.value)}
+          />
           <input type="submit" />
         </form>
       </>
     )
-  }
+}
+
 export default SearchBar;
