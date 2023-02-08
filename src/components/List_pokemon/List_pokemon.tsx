@@ -28,13 +28,18 @@ const Liste_pokemon = (props : Props): JSX.Element => {
     );
 
     return(
-      <ul className='PokemonZ'>
+      <ol className='PokemonZ'>
       {filteredList.map((item, index) => (
-        <li className='PokemonCard' key={index}>{item}      
-            <img src={Lien_image(list.indexOf(item))} alt={`${item}`} />
+        <>
+        <li className='PokemonCard' key={index}>
+          <div className='HeadCard'>
+            <p className='Nom'>{item}</p></div>
+            <img className='image' src={Lien_image(list.indexOf(item))} alt={`${item}`} />
+            <p className='Numero'>No. {list.indexOf(item)}</p>
         </li>
+        </>
       ))}
-      </ul>
+      </ol>
     );
 }
 

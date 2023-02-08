@@ -1,18 +1,52 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family:fantasy;
 }
 
+/* Groupe de carte */
 .PokemonZ{
     display: grid;
-    list-style: none;
+    margin-top: 5rem;
+    margin: 2vw;
     grid-template-columns: repeat(5, 1fr);
     justify-items: center;
 }
 
+/* Haut de carte  */
+.HeadCard{
+    display: grid;
+    background-color: #123E72;
+    border-radius: 5px 5px 0% 0%;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    color: #F0F0F0;
+}
+
+.Nom{
+    /* width: 99%; */
+    justify-self: end;
+    padding-right: 5%;
+}
+
+.image{
+    width: 100%;
+    background-color: #F0F0F0;
+}
+
+.Numero{
+    width: 95%;
+    justify-self: end;
+}
 
 .PokemonCard{
     display: grid;
-    width: max-content;
+    margin: 1em;
+    width: 70%;
+    justify-items: center;
+    border: 2px solid;
+    border-color: #FF0000;
+    border-radius: 5px 5px 12px  12px;
+    box-shadow: 2px 1px 5px  #BF0000;
 }

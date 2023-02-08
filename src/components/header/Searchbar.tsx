@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Searchbar.css';
 
 type Props = {
     onSearch: (inputValue: string) => void;
@@ -18,15 +19,14 @@ const SearchBar = (props : Props): JSX.Element => {
   
     return (
       <>
-        <h1> Pokemonz</h1>
+        <h1> Pokemon</h1>
         <form onSubmit={handleSubmit}>
-          <label>Filter : 
+          <label>
           </label>
-          <input type="text" 
+          <input type="text" placeholder='Arceus' className='input'
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          />
-          <input type="submit" />
+          /><input type="submit" value="Srch"  className='button'/>
         </form>
       </>
     )
