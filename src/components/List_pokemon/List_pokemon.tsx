@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import './List_pokemon.css';
 type Props = {
     filtrage: string;
 };
@@ -29,13 +29,13 @@ const Liste_pokemon = (props : Props): JSX.Element => {
     );
 
     return(
-      <ol>
+      <ul className='PokemonZ'>
       {filteredList.map((item, index) => (
-        <li key={index}>{item}      
+        <li className='PokemonCard' key={index}>{item}      
             <img src={Lien_image(list.indexOf(item))} alt={`${item}`} />
         </li>
       ))}
-      </ol>
+      </ul>
     );
 }
 

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 type Props = {
     onSearch: (inputValue: string) => void;
@@ -19,9 +18,9 @@ const SearchBar = (props : Props): JSX.Element => {
   
     return (
       <>
-        <h1> To do list</h1>
+        <h1> Pokemonz</h1>
         <form onSubmit={handleSubmit}>
-          <label>type the number of the pokemon: 
+          <label>Filter : 
           </label>
           <input type="text" 
           value={inputValue}

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Liste_pokemon from './components/List_pokemon';
+import Liste_pokemon from './components/List_pokemon/List_pokemon';
 import SearchBar from './components/Searchbar';
     
 function App(): JSX.Element {
