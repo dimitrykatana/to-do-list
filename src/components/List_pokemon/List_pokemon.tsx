@@ -23,7 +23,6 @@ const Liste_pokemon = (props : Props): JSX.Element => {
       })
       .catch(error => console.error(error));
     }, []);
-    console.log(props)
     const filteredList = list.filter(item =>
         item.includes(props.filtrage.toLowerCase())
     );
