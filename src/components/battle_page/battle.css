@@ -9,9 +9,34 @@ body{
     background-attachment: fixed;
 }
 
+.ally{
+    width: 40vw;
+    height: 40vh;
+}
+
+.contenders{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+
+button{
+    grid-area: 2 / 1;   
+    justify-self: center;
+}
+
+.App{
+    display: grid;
+    justify-items: center;
+}
+
 .PokemonZ{
+    margin-bottom: 0;
     display: flex;
+    position: fixed;
     list-style: none;
     justify-content: center;
     flex-wrap: wrap;
+    width: 85vw;
+    bottom: 0;
 }

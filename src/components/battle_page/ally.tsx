@@ -25,8 +25,10 @@ const Ally = (props : Props) =>{
 
     return(
         <>
-        <img className='image' src={Lien_image(numb1)} />
-        <img className='image' src={Lien_image(numb2)} />
+        <div className="contenders">
+        <img className='ally' src={Lien_image(numb1)} />
+        <img className='ally' src={Lien_image(numb2)} />
+        </div>
         </>
     )
 }
