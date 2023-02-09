@@ -9,36 +9,35 @@ type Props = {
 
 const Char_pick = (props : Props): JSX.Element => {
     const [list, setList] = useState<string[]>([]);
-
+    const [boolean, setBoolean] = useState(false);
     useEffect(() => {
-      axios.get(`https://pokeapi.co/api/v2/pokemon?limit=50`)
-      .then(res => {
-        // list the names of all poke monsterzzz.
-        const Les_pokemonz = res.data.results.map((pokemonz : { name: string}) => pokemonz.name)
-        // put them in the list
-        setList( Les_pokemonz)
-      })
-      .catch(error => console.error(error));
+        axios.get(`https://pokeapi.co/api/v2/pokemon?limit=50`)
+        .then(res => {
+            // list the names of all poke monsterzzz.
+            const Les_pokemonz = res.data.results.map((pokemonz : { name: string}) => pokemonz.name)
+            // put them in the list
+            setList(Les_pokemonz)
+        })
+        .catch(error => console.error(error));
     }, []);
     return(
-        <>
-    <ul className='PokemonZ'>
-      {list.map((item, index) => (
-        <li className='PokemonCard' key={index} onClick={() =>{
-            props.onChoice(index)
-        }
-            }>
+        <>    
+        <button onClick={() => {
+            setBoolean(prevState => !prevState);
+            props.Personne(boolean);
+        }}>
+        SWITCH
+        </button>
+        <ul className='PokemonZ'>
+            {list.map((item, index) => (
+            <li className='PokemonCard' key={index} onClick={() =>{
+                props.onChoice(index)
+            }}>
             <img className='image' src={Lien_image(list.indexOf(item))} alt={`${item}`}/>
-        </li>
-      ))}
-<button onClick={() => {
-    props.Personne(!props.Personne);
-}}>Choose</button>
-
-      </ul>
-      </>
-
-);
+            </li>
+            ))}
+        </ul>
+        </>   
+    );
 }
-
 export default Char_pick;

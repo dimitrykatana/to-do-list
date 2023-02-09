@@ -7,8 +7,8 @@ const Battle_scene = (): JSX.Element => {
   const [person, setPerson] = useState<boolean>(true);
     return(
       <>
-      <Char_pick onChoice={setIndex} Personne={setPerson}/>
       <Ally picked={getIndex} personne={person}/>
+      <Char_pick onChoice={setIndex} Personne={setPerson}/>
       </>
     );
 }

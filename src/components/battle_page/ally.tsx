@@ -7,23 +7,29 @@ type Props = {
 };
 
 const Ally = (props : Props) =>{
-    let numb = [0,0];
+    const [numb1, setNumb1] = useState<number>(0);
+    const [numb2, setNumb2] = useState<number>(0);
 
-    if(props.personne === true ){
-        numb[0] = props.picked
-    }
-    
-    if(props.personne === false ){
-        numb[1] = props.picked
-    }
+    useEffect(() => {
+        if(props.personne === true ){
+            setNumb1(props.picked);
+        }
+        
+        if(props.personne === false ){
+            setNumb2(props.picked);
+        }
+    }, [props.picked
+        //works fine without it but let just keep it
+        //  ,props.personne
+        ]);
 
-    console.log(numb);
     return(
         <>
-        <img className='image' src={Lien_image(numb[0])} />
-        <img className='image' src={Lien_image(numb[1])} />
+        <img className='image' src={Lien_image(numb1)} />
+        <img className='image' src={Lien_image(numb2)} />
         </>
     )
 }
+
 
 export default Ally;
