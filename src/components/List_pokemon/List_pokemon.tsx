@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './List_pokemon.css';
+import Lien_image from '../API_CO/api';
+
 type Props = {
     filtrage: string;
 };
 
-const Lien_image = (index : number) => {
-    const lien = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`;
-    return lien;
-}
-
-const Liste_pokemon = (props : Props): JSX.Element => {
+const Liste = (props : Props): JSX.Element => {
     const [list, setList] = useState<string[]>([]);
+    
+    //on garde cette liste pour le battle
+    useEffect(() => {
+      axios.get(`https://pokeapi.co/api/v2/pokemon/1/`)
+      .then(res => {
+        // list the names of all poke monsterzzz.
+        console.log(res.data)
+      })
+      .catch(error => console.error(error));
+    }, []);
     
     useEffect(() => {
       axios.get(`https://pokeapi.co/api/v2/pokemon?limit=50`)
@@ -31,7 +38,7 @@ const Liste_pokemon = (props : Props): JSX.Element => {
       <ul className='PokemonZ'>
       {filteredList.map((item, index) => (
         <>
-        <li className='PokemonCard' key={index}>
+        <li className='PokemonCard' key={item}>
           <div className='HeadCard'>
             <p className='Nom'>{item}</p></div>
             <img className='image' src={Lien_image(list.indexOf(item))} alt={`${item}`} />
@@ -43,4 +50,4 @@ const Liste_pokemon = (props : Props): JSX.Element => {
     );
 }
 
-export default Liste_pokemon;
+export default Liste;

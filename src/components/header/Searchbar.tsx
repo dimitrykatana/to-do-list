@@ -10,7 +10,6 @@ const SearchBar = (props : Props): JSX.Element => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
       // permet d'éviter le rechargement de la page
       event.preventDefault();
-    console.log(props.onSearch)
     // call the onSearch prop to pass the inputValue to the parent component
     // On passe à ce props l'inputvalue du usestate que l'on a en haut
     props.onSearch(inputValue);

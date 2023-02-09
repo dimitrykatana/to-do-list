@@ -4,6 +4,11 @@
     font-family:fantasy;
 }
 
+:root {
+    color: aliceblue;
+    /* background-color: #275892; */
+}
+
 /* Groupe de carte */
 .PokemonZ{
     display: grid;
