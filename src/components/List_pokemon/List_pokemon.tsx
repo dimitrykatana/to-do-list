@@ -28,18 +28,18 @@ const Liste_pokemon = (props : Props): JSX.Element => {
     );
 
     return(
-      <ol className='PokemonZ'>
+      <ul className='PokemonZ'>
       {filteredList.map((item, index) => (
         <>
         <li className='PokemonCard' key={index}>
           <div className='HeadCard'>
             <p className='Nom'>{item}</p></div>
             <img className='image' src={Lien_image(list.indexOf(item))} alt={`${item}`} />
-            <p className='Numero'>No. {list.indexOf(item)}</p>
+            <p className='Numero'>No. {list.indexOf(item)+1}</p>
         </li>
         </>
       ))}
-      </ol>
+      </ul>
     );
 }
 
