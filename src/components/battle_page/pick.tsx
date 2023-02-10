@@ -1,6 +1,6 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import axios from 'axios';
-import Lien_image from '../API_CO/api';
+import { Lien_image } from '../API_CO/api';
 
 type Props = {
     onChoice: Dispatch<SetStateAction<number>>;
@@ -17,6 +17,7 @@ const Char_pick = (props : Props): JSX.Element => {
             const Les_pokemonz = res.data.results.map((pokemonz : { name: string}) => pokemonz.name)
             // put them in the list
             setList(Les_pokemonz)
+            console.log()
         })
         .catch(error => console.error(error));
     }, []);

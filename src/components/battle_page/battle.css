@@ -10,12 +10,13 @@ body{
 }
 
 .ally{
-    width: 40vw;
-    height: 40vh;
+    width: 30vw;
+    height: 30vh;
 }
 
 .contenders{
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
 }
@@ -33,10 +34,10 @@ button{
 .PokemonZ{
     margin-bottom: 0;
     display: flex;
-    position: fixed;
+    /* position: fixed; */
     list-style: none;
     justify-content: center;
     flex-wrap: wrap;
-    width: 85vw;
+    width: 90vw;
     bottom: 0;
 }
