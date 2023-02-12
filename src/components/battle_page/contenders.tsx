@@ -37,10 +37,15 @@ const Contenders = (props : Props) =>{
     return(
         <>
         <div className="contenders">
-        <img className='ally' src={Lien_artwork(numb1)} />
-        <p> {Namez[numb1]} </p>
-        <img className='ally' src={Lien_artwork(numb2)} />
-        <p> {Namez[numb2]} </p>
+            <div className='ally'>
+                <img  src={Lien_artwork(numb1)} />
+                <p> {Namez[numb1]} </p>
+            </div>
+        
+            <div className='ally'>
+                <img  src={Lien_artwork(numb2)} />
+                <p> {Namez[numb2]} </p>
+            </div>
         </div>
         </>
     )
