@@ -9,10 +9,10 @@ body{
     background-attachment: fixed;
 }
 
-.ally{
+/* .ally{
     width: 30vw;
     height: 30vh;
-}
+} */
 
 .contenders{
     display: grid;
