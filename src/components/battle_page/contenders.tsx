@@ -24,28 +24,26 @@ const Contenders = (props : Props) =>{
         //  ,props.personne
         ]);
     useEffect( () => {
-            axios.get(`https://pokeapi.co/api/v2/pokemon/`)
+            axios.get(`https://pokeapi.co/api/v2/pokemon?limit=50`)
             .then(res => {
                 // list the names of all poke monsterzzz.
                 const Namez = res.data.results.map((Namez : { name: string}) => Namez.name)
                 // put them in the list
-                console.log(Namez[2])
-                return Namez;
+                setNamez(Namez);
             })
             .catch(error => console.error(error));
-        }, []);
+        }, [props.picked, props.personne]);
 
     return(
         <>
         <div className="contenders">
         <img className='ally' src={Lien_artwork(numb1)} />
-        <p> {Namez[numb1]}</p>
-        {/* <img className='ally' src={Lien_image(numb2)} /> */}
+        <p> {Namez[numb1]} </p>
         <img className='ally' src={Lien_artwork(numb2)} />
+        <p> {Namez[numb2]} </p>
         </div>
         </>
     )
 }
-
 
 export default Contenders;
