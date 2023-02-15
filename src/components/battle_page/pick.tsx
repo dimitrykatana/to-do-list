@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Lien_image } from '../API_CO/api';
-import { useBattleSceneContext } from './context';
+import { BattleSceneContext} from './context';
 
 const Char_pick = (): JSX.Element => {
+    const { setIndex, setPerson } = useContext(BattleSceneContext);
     const [list, setList] = useState<string[]>([]);
-    const { setIndex, setPerson } = useBattleSceneContext();
+    
     useEffect(() => {
         axios.get(`https://pokeapi.co/api/v2/pokemon?limit=50`)
         .then(res => {
