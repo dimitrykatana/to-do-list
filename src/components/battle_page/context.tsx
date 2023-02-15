@@ -7,9 +7,8 @@ type BattleSceneContextType = {
   person: boolean;
   setPerson: Dispatch<SetStateAction<boolean>>;
 };
-// The first thing this code does is create a "context", which is like a big container that holds some values that can be shared across multiple components. In this case, the context holds two values called "index" and "person", and some functions that can be used to change those values.
 
-// Create the context with an initial value
+// This code creates a "context". The context holds two values called "index" and "person", and functions to change those values.
 export const BattleSceneContext = createContext<BattleSceneContextType>({
   index: 0,
   setIndex: () => {},
@@ -17,8 +16,7 @@ export const BattleSceneContext = createContext<BattleSceneContextType>({
   setPerson: () => {},
 });
 
-// The "BattleSceneProvider" component is a way to wrap other components with the context so that they can access the shared values. It uses some special functions from React called "useState" to create the initial values for "index" and "person", and then puts those values into the big container along with the functions to change them.
-// Define the props for the context provider
+
 type Props = {
     children: ReactNode;
   };
