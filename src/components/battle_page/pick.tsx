@@ -1,15 +1,11 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Lien_image } from '../API_CO/api';
+import { useBattleSceneContext } from './context';
 
-type Props = {
-    onChoice: Dispatch<SetStateAction<number>>;
-    Personne: Dispatch<SetStateAction<boolean>>;
-};
-
-const Char_pick = (props : Props): JSX.Element => {
+const Char_pick = (): JSX.Element => {
     const [list, setList] = useState<string[]>([]);
-    const [boolean, setBoolean] = useState(false);
+    const { setIndex, setPerson } = useBattleSceneContext();
     useEffect(() => {
         axios.get(`https://pokeapi.co/api/v2/pokemon?limit=50`)
         .then(res => {
@@ -24,15 +20,14 @@ const Char_pick = (props : Props): JSX.Element => {
     return(
         <>    
         <button onClick={() => {
-            setBoolean(prevState => !prevState);
-            props.Personne(boolean);
+            setPerson(prevState => !prevState);
         }}>
         SWITCH
         </button>
         <ul className='PokemonZ'>
             {list.map((item, index) => (
             <li className='PokemonCard' key={index} onClick={() =>{
-                props.onChoice(index)
+                setIndex(index)
             }}>
             <img className='image' src={Lien_image(list.indexOf(item))} alt={`${item}`}/>
             </li>

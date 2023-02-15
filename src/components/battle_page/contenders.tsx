@@ -1,27 +1,24 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { Lien_image } from '../API_CO/api';
+import { useState, useEffect } from 'react';
 import { Lien_artwork } from '../API_CO/api';
-type Props = {
-    picked: number;
-    personne: boolean;
-};
+import { useBattleSceneContext } from './context';
 
-const Contenders = (props : Props) =>{
+const Contenders = () =>{
+    const { index, person } = useBattleSceneContext();
     const [numb1, setNumb1] = useState<number>(0);
     const [numb2, setNumb2] = useState<number>(0);
     const [Namez, setNamez] = useState<string[]>([]);
     useEffect(() => {
-        if(props.personne === true ){
-            setNumb1(props.picked);
+        if( person === true ){
+            setNumb1(index);
         }
         
-        if(props.personne === false ){
-            setNumb2(props.picked);
+        if( person === false ){
+            setNumb2(index);
         }
-    }, [props.picked
+    }, [index
         //works fine without it but let just keep it
-        //  ,props.personne
+        //  ,person
         ]);
     useEffect( () => {
             axios.get(`https://pokeapi.co/api/v2/pokemon?limit=50`)
@@ -32,7 +29,7 @@ const Contenders = (props : Props) =>{
                 setNamez(Namez);
             })
             .catch(error => console.error(error));
-        }, [props.picked, props.personne]);
+        }, [index, person]);
 
     return(
         <>

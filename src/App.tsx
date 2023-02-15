@@ -9,7 +9,10 @@ const List = (): JSX.Element => {
     <div className="App">
     {/* <SearchBar onSearch={setFilter} />
     <Liste filtrage={filter} /> */}
-    <Battle_scene/>
+       {/* <BattleSceneProvider> */}
+      <Battle_scene />
+    {/* </BattleSceneProvider> */}
+
     </div>
     )
 }
