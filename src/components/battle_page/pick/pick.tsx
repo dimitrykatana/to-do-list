@@ -19,7 +19,7 @@ const Char_pick = (): JSX.Element => {
     }, []);
     return(
         <>    
-        <button onClick={() => {
+        <button className='bouton' onClick={() => {
             setPerson(prevState => !prevState);
         }}>
         SWITCH
@@ -32,6 +32,10 @@ const Char_pick = (): JSX.Element => {
             <img className='image' src={Lien_image(list.indexOf(item))} alt={`${item}`}/>
             </li>
             ))}
+
+        <button className='FIGHT'>
+            FIGHT
+        </button>
         </ul>
         </>   
     );

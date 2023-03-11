@@ -3,16 +3,7 @@
     padding: 0;
 }
 body{
-    /* background-image: url("/src/assets/pokmon-1675954877378-5264.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed; */
     background-color: rgb(111, 187, 162)    ;
-}
-
-button{
-    grid-area: 2 / 1;   
-    justify-self: center;
 }
 
 .App{
@@ -23,7 +14,7 @@ button{
 .PokemonZ{
     margin-bottom: 0;
     display: flex;
-    /* position: fixed; */
+    align-items: center;
     list-style: none;
     justify-content: center;
     flex-wrap: wrap;

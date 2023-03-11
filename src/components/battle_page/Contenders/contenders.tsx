@@ -26,7 +26,7 @@ const Contenders = () =>{
         <>
         <div className="contenders">
             <div className={`ally ${person ? 'isActive' : 'isNot'}`} >
-                <img  src={Lien_artwork(numb1)} />
+                <img src={Lien_artwork(numb1)} />
                 <p className='texte'> {Namez[numb1]} </p>
             </div>
 
