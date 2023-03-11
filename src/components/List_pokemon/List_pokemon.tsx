@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './List_pokemon.css';
-import Lien_image from '../API_CO/api';
+import {Lien_image} from '../API_CO/api';
 
 type Props = {
     filtrage: string;

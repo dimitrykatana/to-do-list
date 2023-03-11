@@ -1,0 +1,33 @@
+
+/* .ally{
+    width: 30vw;
+    height: 30vh;
+} */
+
+.contenders{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    /* opacity: 0.5; */
+}
+
+.ally{
+    display: grid;
+    justify-items: center;
+}
+
+.isNot{
+    opacity: 0.70;
+    /* pointer-events: none; */
+}
+
+.isActive{  
+    opacity: 1;
+    filter: drop-shadow(2px 5px 10px rgb(55, 49, 14));
+}
+
+.texte{
+    font-size: 36px;
+    font-family: cursive;
+}

@@ -1,5 +1,5 @@
-import Char_pick from './pick';
-import Contenders from './contenders';
+import Char_pick from './pick/pick';
+import Contenders from './Contenders/contenders';
 import { BattleSceneProvider } from './context';
 
 const Battle_scene = (): JSX.Element => {

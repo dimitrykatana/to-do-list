@@ -1,18 +1,15 @@
 import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
-import { Lien_artwork } from '../API_CO/api';
-import { BattleSceneContext } from './context';
+import { Lien_artwork } from '../../API_CO/api';
+import { BattleSceneContext } from '../context';
 
 const Contenders = () =>{
     const { index, person } = useContext(BattleSceneContext);
     const [numb1, setNumb1] = useState<number>(0);
     const [numb2, setNumb2] = useState<number>(0);
     const [Namez, setNamez] = useState<string[]>([]);
-    useEffect(() => {
-        person ? setNumb1(index) : setNumb2(index);  
-    }, [index]);
 
-    useEffect( () => {
+    useEffect(() => {
         axios.get(`https://pokeapi.co/api/v2/pokemon?limit=50`)
         .then(res => {
             const Namez = res.data.results.map((Namez : { name: string}) => Namez.name)
@@ -21,17 +18,21 @@ const Contenders = () =>{
         .catch(error => console.error(error));
     }, []);
 
+    useEffect(() => {
+        person ? setNumb1(index) : setNumb2(index);  
+    }, [index]);
+
     return(
         <>
         <div className="contenders">
-            <div className='ally'>
+            <div className={`ally ${person ? 'isActive' : 'isNot'}`} >
                 <img  src={Lien_artwork(numb1)} />
-                <p> {Namez[numb1]} </p>
+                <p className='texte'> {Namez[numb1]} </p>
             </div>
 
-            <div className='ally'>
+            <div className={`ally ${!person ? 'isActive' : 'isNot'}`}>
                 <img  src={Lien_artwork(numb2)} />
-                <p> {Namez[numb2]} </p>
+                <p className='texte'> {Namez[numb2]} </p>
             </div>
         </div>
         </>

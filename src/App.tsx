@@ -3,7 +3,7 @@ import Liste from './components/List_pokemon/List_pokemon';
 import SearchBar from './components/header/Searchbar';
 import Battle_scene from './components/battle_page/battle';
     
-const List = (): JSX.Element => {
+const App = (): JSX.Element => {
     const [filter, setFilter] = useState('');
     return (
     <div className="App">
@@ -17,4 +17,4 @@ const List = (): JSX.Element => {
     )
 }
 
-export default List;
+export default App;

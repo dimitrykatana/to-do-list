@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { Lien_image } from '../API_CO/api';
-import { BattleSceneContext} from './context';
+import { Lien_image } from '../../API_CO/api';
+import { BattleSceneContext} from '../context';
 
 const Char_pick = (): JSX.Element => {
     const { setIndex, setPerson } = useContext(BattleSceneContext);
@@ -14,7 +14,6 @@ const Char_pick = (): JSX.Element => {
             const Les_pokemonz = res.data.results.map((pokemonz : { name: string}) => pokemonz.name)
             // put them in the list
             setList(Les_pokemonz)
-            console.log()
         })
         .catch(error => console.error(error));
     }, []);

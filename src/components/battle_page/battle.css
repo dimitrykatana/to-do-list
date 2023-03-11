@@ -3,22 +3,11 @@
     padding: 0;
 }
 body{
-    background-image: url("/src/assets/pokmon-1675954877378-5264.jpg");
+    /* background-image: url("/src/assets/pokmon-1675954877378-5264.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
-}
-
-/* .ally{
-    width: 30vw;
-    height: 30vh;
-} */
-
-.contenders{
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
+    background-attachment: fixed; */
+    background-color: rgb(111, 187, 162)    ;
 }
 
 button{
