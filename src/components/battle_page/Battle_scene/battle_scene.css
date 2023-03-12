@@ -7,7 +7,22 @@
 .level, .name{
     color: chartreuse;
     font-weight: 800;
-    font-size: 38;
+    font-size: 28px;
+}
+
+
+.name{
+    width: 50%;
+    grid-area: 1/1;
+    color: deepskyblue;
+    font-weight: 400;
+    
+}
+
+.level{
+    width: min-content;
+    grid-area: 1/2;
+    justify-self: self-end;
 }
 
 .Pokemon1{
@@ -34,10 +49,14 @@
 }
 
 .hp-bar {
-    display: flex;
+    display: grid;
+    grid-column-end: 3; /* span two columns */
     align-items: center;
   }
   
+.hp{
+    justify-self: center;
+}
   progress {
     width: 200px;
     height: 20px;
@@ -45,7 +64,9 @@
     appearance: none;
     background-color: #ddd;
     border-radius: 10px;
+    border: 3px solid black;
     margin-right: 10px;
+    grid-area: 1;
   }
   
   progress::-webkit-progress-bar {
@@ -54,18 +75,24 @@
   }
   
   progress::-webkit-progress-value {
-    background-color: #1a8caf;
+    background-color: aquamarine;
     border-radius: 10px;
   }
   
   .hp-text {
-    font-size: 16px;
+    font-size: 26px;
     font-weight: bold;
-  }
+    grid-area: 1/1;
+    color: aquamarine;
+    justify-self: center;  
+}
 
   .info{
+    display: grid;
     background-color: darkslategray;
     padding: 3vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
     border-radius: 10px;
     border-top-left-radius: 0;
 }

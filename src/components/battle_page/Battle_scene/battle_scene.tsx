@@ -4,13 +4,12 @@ import { useLocation } from 'react-router-dom';
 import { Lien_back, Lien_front} from '../../API_CO/api';
 import { Howl } from 'howler';
 
-
 const Fight = () =>{
     const {state} = useLocation();
     let [Pokemon1, setPokemon1] = useState({name:'', hp: 0});
     let [Pokemon2, setPokemon2] = useState({name:'', hp: 0});
     let sound = new Howl({
-        src: ['Pallet.mp3']
+        src: ['pokemon.webm']
     })
     useEffect(() => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${state[0]}`)
@@ -53,7 +52,7 @@ const Fight = () =>{
                 <p className='level'> Lv.5 </p>
                 <div className="hp-bar">
                     <progress value="100" max="100"></progress>
-                    <p className='hp'> {Pokemon2.hp} / {Pokemon2.hp} </p>
+                    {/* <p className='hp'> {Pokemon2.hp} / {Pokemon2.hp} </p> */}
                 </div>
 
                 </div>
@@ -65,10 +64,10 @@ const Fight = () =>{
                 <p className='name'> {Pokemon1.name} </p>
                 <p className='level'> Lv.5 </p>
                 <div className="hp-bar">
+                    <p className='hp-text'>HP</p>
                     <progress value="100" max="100"></progress>
-                    <p className='hp'> {Pokemon1.hp} / {Pokemon1.hp} </p>
+                    <p style={{gridArea: "2/2"}}  className='hp'> {Pokemon1.hp} / {Pokemon1.hp} </p>
                 </div>
-
                 </div>
             </div>
         </div>
