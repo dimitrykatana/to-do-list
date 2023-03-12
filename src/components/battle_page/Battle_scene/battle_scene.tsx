@@ -41,13 +41,29 @@ const Fight = () =>{
         <div className="Fighters">
             <div className="Pokemon2">
                 <img className='front' src={Lien_front(state[1])}/>
+
+                <div className='info'>
                 <p className='name'> {Pokemon2.name} </p>
-                <p className='hp'> {Pokemon2.hp} / {Pokemon2.hp} </p>
+                <p className='level'> Lv.5 </p>
+                <div className="hp-bar">
+                    <progress value="100" max="100"></progress>
+                    <p className='hp'> {Pokemon2.hp} / {Pokemon2.hp} </p>
+                </div>
+
+                </div>
             </div>
             <div className="Pokemon1" >
                 <img className='back' src={Lien_back(state[0])} />
+
+                <div className='info'>
                 <p className='name'> {Pokemon1.name} </p>
-                <p className='hp'> {Pokemon1.hp} / {Pokemon1.hp} </p>
+                <p className='level'> Lv.5 </p>
+                <div className="hp-bar">
+                    <progress value="100" max="100"></progress>
+                    <p className='hp'> {Pokemon1.hp} / {Pokemon1.hp} </p>
+                </div>
+
+                </div>
             </div>
         </div>
         </>
