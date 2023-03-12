@@ -1,3 +1,15 @@
+.Fighters{
+    background-image: url("../../../assets/platform.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.level, .name{
+    color: chartreuse;
+    font-weight: 800;
+    font-size: 38;
+}
+
 .Pokemon1{
     height: 50vh;
     display: flex;
@@ -50,4 +62,10 @@
     font-size: 16px;
     font-weight: bold;
   }
-  
+
+  .info{
+    background-color: darkslategray;
+    padding: 3vh;
+    border-radius: 10px;
+    border-top-left-radius: 0;
+}

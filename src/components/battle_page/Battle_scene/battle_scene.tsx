@@ -2,12 +2,16 @@ import axios from 'axios';
 import { useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import { Lien_back, Lien_front} from '../../API_CO/api';
+import { Howl } from 'howler';
+
 
 const Fight = () =>{
     const {state} = useLocation();
     let [Pokemon1, setPokemon1] = useState({name:'', hp: 0});
     let [Pokemon2, setPokemon2] = useState({name:'', hp: 0});
-
+    let sound = new Howl({
+        src: ['Pallet.mp3']
+    })
     useEffect(() => {
         axios.get(`https://pokeapi.co/api/v2/pokemon/${state[0]}`)
         .then(res => {
@@ -38,7 +42,9 @@ const Fight = () =>{
 
     return(
         <>
-        <div className="Fighters">
+        <div className="Fighters" 
+        // onLoad={() => sound.play()}
+        >
             <div className="Pokemon2">
                 <img className='front' src={Lien_front(state[1])}/>
 
