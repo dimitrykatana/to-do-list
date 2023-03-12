@@ -9,6 +9,7 @@ type Props = {
 
 const Liste = (props : Props): JSX.Element => {
     const [list, setList] = useState<string[]>([]); 
+    const [opacity, setOpacity] = useState(0);
     
     useEffect(() => {
       axios.get(`https://pokeapi.co/api/v2/pokemon?limit=151`)
@@ -24,30 +25,13 @@ const Liste = (props : Props): JSX.Element => {
         item.includes(props.filtrage.toLowerCase())
     );
 
-    
-  const pokemonCount = filteredList.length;
   const animationDelay = 0.2; // in seconds
-  const transitionDuration = 0.8; // in seconds
-
-  const liStyles: { opacity: number; transition: string; }[] | (React.CSSProperties | undefined)[] = [];
-
-  for (let i = 0; i < pokemonCount; i++) {
-    const delay = i * animationDelay;
-    const style = {
-      opacity: 1,
-      transition: `opacity ${transitionDuration}s ease-in-out ${delay}s`,
-    };
-    if (i === 0) {
-      style.opacity = 1;
-    }
-    liStyles.push(style);
-  }
 
     return(
       <ul className='Pokemons'>
       {filteredList.map((item, index) => (
         <>
-        <li className='PokemonCard' key={item} style={liStyles[index]}>
+        <li className='PokemonCard' key={item} onLoad={() => setOpacity(1)} style={{ opacity:opacity, transition: `opacity 1s ease-in ${index*animationDelay}s ` } }>
           <div className='HeadCard'>
             <p className='Nom'>{item}</p></div>
             <img className='image' src={Lien_image(list.indexOf(item))} alt={`${item}`} />
