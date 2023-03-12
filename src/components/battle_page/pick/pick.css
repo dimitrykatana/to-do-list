@@ -1,4 +1,4 @@
-.image:hover{
+.imagez:hover{
     filter: drop-shadow(1px 1px 1px rgb(93, 208, 116));
     transform: matrix(-1, 0, 0, 1, 0, 0) scale(1.35);
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Searchbar.css';
 
 type Props = {
@@ -19,6 +20,10 @@ const SearchBar = (props : Props): JSX.Element => {
     return (
       <>
         <h1> Pokemon</h1>
+        
+        <Link to={'/Battle'}>
+        TIME TO FIGHT
+        </Link>
         <form onSubmit={handleSubmit}>
           <label>
           </label>

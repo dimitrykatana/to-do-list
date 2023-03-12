@@ -10,7 +10,7 @@
 }
 
 /* Groupe de carte */
-.PokemonZ{
+.Pokemons{
     display: grid;
     list-style: none;
     grid-template-columns: repeat(5, 1fr);
