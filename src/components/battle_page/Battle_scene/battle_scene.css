@@ -1,0 +1,22 @@
+.Pokemon1{
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.Pokemon2{
+    height: 50vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.back{
+    width: 20vw;
+    height: 20vh;
+}
+.front{
+    width: 20vw;
+    height: 20vh;
+}

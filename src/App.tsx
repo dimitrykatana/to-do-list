@@ -8,7 +8,7 @@ import Fight from './components/battle_page/Battle_scene/battle_scene';
 const App = (): JSX.Element => {
     const [filter, setFilter] = useState('');
     return (
-    <div className="App">
+    <>
     {/* <SearchBar onSearch={setFilter} />
     <Liste filtrage={filter} /> */}
        {/* <BattleSceneProvider> */}
@@ -22,7 +22,7 @@ const App = (): JSX.Element => {
     </Router>
     {/* </BattleSceneProvider> */}
 
-    </div>
+    </>
     )
 }
 

@@ -4,21 +4,6 @@ import { Link, LinkProps } from 'react-router-dom';
 import { Lien_artwork } from '../../API_CO/api';
 import { BattleSceneContext } from '../context';
 
-
-interface CustomLinkProps extends LinkProps {
-    to: {
-      pathname: string;
-      state: {
-        numb1: number;
-        numb2: number;
-      };
-    };
-  }
-  
-  const MyLink = ({ to, ...rest }: CustomLinkProps) => {
-    return <Link to={to} {...rest} />;
-  };
-
 const Contenders = () =>{
     const { index, person } = useContext(BattleSceneContext);
     const [numb1, setNumb1] = useState<number>(0);
@@ -46,7 +31,6 @@ const Contenders = () =>{
                 <img src={Lien_artwork(numb1)} />
                 <p className='texte'> {Namez[numb1]} </p>
             </div>
-
             <div className={`ally ${!person ? 'isActive' : 'isNot'}`}>
                 <img  src={Lien_artwork(numb2)} />
                 <p className='texte'> {Namez[numb2]} </p>
