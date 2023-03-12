@@ -27,15 +27,11 @@ const Char_pick = (): JSX.Element => {
         <ul className='PokemonZ'>
             {list.map((item, index) => (
             <li className='PokemonCard' key={index} onClick={() =>{
-                setIndex(index)
+                setIndex(index);
             }}>
             <img className='image' src={Lien_image(list.indexOf(item))} alt={`${item}`}/>
             </li>
             ))}
-
-        <button className='FIGHT'>
-            FIGHT
-        </button>
         </ul>
         </>   
     );

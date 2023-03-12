@@ -1,6 +1,5 @@
 import Char_pick from './pick/pick';
 import Contenders from './Contenders/contenders';
-import Fight from './Battle_scene/battle_scene';
 import { BattleSceneProvider } from './context';
 
 const Battle_scene = (): JSX.Element => {
@@ -9,7 +8,6 @@ const Battle_scene = (): JSX.Element => {
        <BattleSceneProvider>
       <Contenders/>
       <Char_pick/>
-      <Fight/>
       </BattleSceneProvider>
       </>
     );

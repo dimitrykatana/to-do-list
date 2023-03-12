@@ -16,7 +16,6 @@ export const BattleSceneContext = createContext<BattleSceneContextType>({
   setPerson: () => {},
 });
 
-
 type Props = {
     children: ReactNode;
   };
