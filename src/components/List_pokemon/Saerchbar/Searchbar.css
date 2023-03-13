@@ -1,20 +1,13 @@
-h1{
-    font-size: 64px;
-    /* padding: 10px; */
-    font-family: fantasy;
-}
-
 form, h1{
     text-align: center;
 }
 
 h1 {
-    font-size: 3em;
+  font-size: 64px;
     font-family: cursive;
     font-weight: bold;
     color: #124685;
     text-align: center;
-    /* margin-top: 1em; */
     margin-bottom: 0.5em;
   }
   
