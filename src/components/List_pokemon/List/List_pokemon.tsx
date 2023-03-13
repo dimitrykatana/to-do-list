@@ -41,10 +41,10 @@ const Liste = (props: Props): JSX.Element => {
   }
 
   return (
-    <ul className="Pokemons">
+    <ul className="Liste__Pokemons">
       {filteredList().map((item) => (
         <li
-          className="PokemonCard"
+          className="Liste__Pokemons__Card"
           key={item}
           onLoad={() => setOpacity(1)}
           style={{

@@ -1,31 +1,32 @@
 *{
     margin: 0;
     padding: 0;
-    font-family:fantasy;
-}
-
-:root {
-    color: aliceblue;
-    /* background-color: #275892; */
+    box-sizing: border-box;
 }
 
 /* Groupe de carte */
-.Pokemons{
+.Liste__Pokemons{
     display: grid;
     list-style: none;
     grid-template-columns: repeat(5, 1fr);
     justify-items: center;
 }
 
-.PokemonCard{
-    margin: 1em;
-    width: 75%;
-    background-color: #F0F0F0;
-    border: 3px solid;
-    border-color: #123E72;
-    border-radius: 10px;
+.Liste__Pokemons__Card{
+  margin: 1em;
+  padding: 10px;
+  width: 75%;
+  background-color: rgba(205, 218, 188, 0.252);
+  backdrop-filter: blur(100px);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
 }
 
+.Liste__Pokemons__Card:hover{
+    filter: drop-shadow(1px 1px 1px rgb(37, 255, 80));
+    transform:  scale(1.13);
+    cursor: pointer;
+}
 /* Haut de carte  */
 .HeadCard, .Numero{
     text-align: center;

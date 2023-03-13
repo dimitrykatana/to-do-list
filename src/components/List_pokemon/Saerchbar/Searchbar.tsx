@@ -19,11 +19,11 @@ const SearchBar = (props : Props): JSX.Element => {
   
     return (
       <>
-        <h1> Pokemon</h1>
         
         <Link to={'/Battle'}>
         TIME TO FIGHT
         </Link>
+        <h1> Pokemon</h1>
         <form onSubmit={handleSubmit}>
           <label>
           </label>
