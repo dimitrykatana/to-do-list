@@ -36,9 +36,9 @@ const Liste = (props: Props): JSX.Element => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  if (list.length === 0) {
-    return <div>No results found</div>;
-  }
+  // if (list.length === 0) {
+  //   return <div>No results found</div>;
+  // }
 
   return (
     <ul className="Liste__Pokemons">
@@ -52,9 +52,7 @@ const Liste = (props: Props): JSX.Element => {
             transition: `opacity 1s ease-in ${list.indexOf(item) * animationDelay}s`,
           }}
         >
-          <div className="HeadCard">
-            <p className="Nom">{item}</p>
-          </div>
+          <p className="HeadCard Nom">{item}</p>
           <img className="image" src={Lien_image(list.indexOf(item))} alt={`${item}`} />
           <p className="Numero">No. {list.indexOf(item) + 1}</p>
         </li>

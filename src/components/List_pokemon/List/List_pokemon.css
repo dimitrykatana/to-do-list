@@ -13,27 +13,33 @@
 }
 
 .Liste__Pokemons__Card{
+  background-image: linear-gradient(to top, #00bbd4c6, rgba(205, 218, 188, 0.160));
+  width: 80%;
   margin: 1em;
   padding: 10px;
-  width: 75%;
-  background-color: rgba(205, 218, 188, 0.252);
-  backdrop-filter: blur(100px);
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.113);
 }
 
 .Liste__Pokemons__Card:hover{
     filter: drop-shadow(1px 1px 1px rgb(37, 255, 80));
-    transform:  scale(1.13);
-    cursor: pointer;
+    transform: scale(1.13);
+    cursor: help;
 }
 /* Haut de carte  */
+
 .HeadCard, .Numero{
     text-align: center;
     color: #123E72;
     font-size: 18px;
 }
 
-.image, .HeadCard, .Numero{
+.HeadCard{
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: cursive;
+}
+
+.image{
     width: 100%;
 }

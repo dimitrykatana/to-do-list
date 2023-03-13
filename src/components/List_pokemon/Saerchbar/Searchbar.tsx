@@ -19,8 +19,7 @@ const SearchBar = (props : Props): JSX.Element => {
   
     return (
       <>
-        
-        <Link to={'/Battle'}>
+        <Link className='link' to={'/Battle'}>
         TIME TO FIGHT
         </Link>
         <h1> Pokemon</h1>
