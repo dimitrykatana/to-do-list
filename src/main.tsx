@@ -8,7 +8,6 @@ import './components/battle_page/Battle_scene/battle_scene.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    
     <App></App>
   </React.StrictMode>
 )

@@ -2,4 +2,10 @@
 // isn't returning anything and so you have to.
 // When you create a jsx element use uppercase for the first letter
 // if you don't react assume this is already an existing feature
-// which is not our case
+// which is often not
+
+
+CHALLENGE:
+- use as less div containers as possible
+- only use grid
+- responsive without media queries

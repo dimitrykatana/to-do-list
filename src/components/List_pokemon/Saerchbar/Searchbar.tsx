@@ -10,7 +10,7 @@ const SearchBar = ({ onSearch }: Props): JSX.Element => {
   const { inputValue, handleInputChange, handleSubmit } = useSearchBar(onSearch);
 
   return (
-    <div className='center'>
+    <>
       <Link className="link" to={'/Battle'}>
         TIME TO FIGHT
       </Link>
@@ -27,7 +27,7 @@ const SearchBar = ({ onSearch }: Props): JSX.Element => {
         />
         <input type="submit" value="Srch" className="button" />
       </form>
-    </div>
+    </>
   );
 };
 

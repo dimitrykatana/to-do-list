@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect, useContext } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Lien_artwork } from '../../API_CO/api';
 import { BattleSceneContext } from '../context';
 

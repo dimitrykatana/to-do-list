@@ -38,6 +38,7 @@ const Liste = (props: Props): JSX.Element => {
   }
 
   return (
+    <main>
     <ul className="Liste__Pokemons">
       {filteredList().map((item) => (
         <li
@@ -55,6 +56,7 @@ const Liste = (props: Props): JSX.Element => {
         </li>
       ))}
     </ul>
+    </main>
   );
 };
 

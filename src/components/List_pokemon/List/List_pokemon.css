@@ -11,16 +11,16 @@
     max-width: 1500px;
     list-style: none;
     margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 30px 10px;
     justify-items: center;
-    /* justify-self: center; */
 }
 
 .Liste__Pokemons__Card{
   background-image: linear-gradient(to top, #00bbd4c6, rgba(205, 218, 188, 0.160));
   width: 250px;
-  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 255, 170, 0.113);
 }
