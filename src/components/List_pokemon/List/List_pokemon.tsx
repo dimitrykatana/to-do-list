@@ -36,9 +36,6 @@ const Liste = (props: Props): JSX.Element => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-  // if (list.length === 0) {
-  //   return <div>No results found</div>;
-  // }
 
   return (
     <ul className="Liste__Pokemons">

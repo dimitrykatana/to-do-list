@@ -7,15 +7,19 @@
 /* Groupe de carte */
 .Liste__Pokemons{
     display: grid;
+    width: 90%;
+    max-width: 1500px;
     list-style: none;
-    grid-template-columns: repeat(5, 1fr);
+    margin: auto;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 30px 10px;
     justify-items: center;
+    /* justify-self: center; */
 }
 
 .Liste__Pokemons__Card{
   background-image: linear-gradient(to top, #00bbd4c6, rgba(205, 218, 188, 0.160));
-  width: 80%;
-  margin: 1em;
+  width: 250px;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 255, 170, 0.113);
@@ -26,8 +30,8 @@
     transform: scale(1.13);
     cursor: help;
 }
-/* Haut de carte  */
 
+/* Haut de carte  */
 .HeadCard, .Numero{
     text-align: center;
     color: #123E72;
